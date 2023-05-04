@@ -52,7 +52,10 @@ export class InicioPage implements OnInit {
       }
       for (let obj of this.usuarios){
         if (obj.correo == f.correo && obj.password == f.password){
-          nom = 'Bienvenido ' + obj.nombre + ' '+obj.apellidos;
+          obj.nombre = obj.nombre.charAt(0).toUpperCase() + obj.nombre.slice(1);
+          obj.apellidos = obj.apellidos.charAt(0).toUpperCase() + obj.apellidos.slice(1);
+          nom = 'Bienvenido ' + obj.nombre + ' '+obj.apellidos; //mensaje de bienvenida
+
           a = 1;
           console.log('Usuario ingresado');
           localStorage.setItem('ingresado','true');
